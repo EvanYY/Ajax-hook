@@ -6,7 +6,7 @@
 
 import {hook, unHook} from "./xhr-hook";
 
-export var ah = {
+export var xhlXML = {
     hook,
     unHook,
 };

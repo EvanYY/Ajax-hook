@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -194,6 +194,24 @@ function unHook() {
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var justifyUrl = exports.justifyUrl = function justifyUrl(url) {
+  var whiteList = ['/direct_v2/web/inbox', '/direct_v2/web/threads/'];
+  if (!url || typeof url !== 'string') return false;
+  return whiteList.some(function (v) {
+    return url.indexOf(v) !== -1;
+  });
+};
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -454,35 +472,36 @@ function Proxy(proxy) {
 }
 
 /***/ }),
-/* 2 */,
-/* 3 */
+/* 3 */,
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
-exports.ah = undefined;
+exports.xhlXML = undefined;
 
 var _xhrHook = __webpack_require__(0);
 
-var _xhrProxy = __webpack_require__(1);
+var _xhrProxy = __webpack_require__(2);
+
+var _whiteListName = __webpack_require__(1);
 
 // ah(ajax hook)
-/*
- * author: wendux
- * email: 824783146@qq.com
- * source code: https://github.com/wendux/Ajax-hook
- */
-
-var ah = exports.ah = {
-  proxy: _xhrProxy.proxy,
-  unProxy: _xhrProxy.unProxy,
-  hook: _xhrHook.hook,
-  unHook: _xhrHook.unHook
-};
+var xhlXML = exports.xhlXML = {
+    proxy: _xhrProxy.proxy,
+    unProxy: _xhrProxy.unProxy,
+    hook: _xhrHook.hook,
+    unHook: _xhrHook.unHook,
+    justifyUrl: _whiteListName.justifyUrl
+}; /*
+    * author: wendux
+    * email: 824783146@qq.com
+    * source code: https://github.com/wendux/Ajax-hook
+    */
 
 /***/ })
 /******/ ])));

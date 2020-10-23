@@ -6,10 +6,12 @@
 
 import {hook, unHook} from "./xhr-hook";
 import {proxy, unProxy} from "./xhr-proxy";
+import {justifyUrl} from './white-list-name';
 // ah(ajax hook)
-export var ah = {
+export var xhlXML = {
     proxy,
     unProxy,
     hook,
     unHook,
+    justifyUrl
 };
